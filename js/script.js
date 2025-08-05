@@ -14,22 +14,29 @@ document.addEventListener("click", function (e) {
 });
 
 //Scroll to top button
-const reveals = document.querySelectorAll('.reveal');
+let lastScrollTop = 0;
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
+window.addEventListener("scroll", function () {
+  const reveals = document.querySelectorAll(".reveal");
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const scrollingDown = scrollTop > lastScrollTop;
+
+  reveals.forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (scrollingDown) {
+      // Jika elemen masuk viewport saat scroll ke bawah
+      if (rect.top < windowHeight - 100) {
+        el.classList.add("active");
       }
-    });
-  },
-  {
-    threshold: 0.1
-  }
-);
+    } else {
+      // Scroll ke atas: hapus class, tapi hanya jika elemen sudah di luar atas layar
+      if (rect.bottom < 0) {
+        el.classList.remove("active");
+      }
+    }
+  });
 
-reveals.forEach(el => {
-  observer.observe(el);
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
-
