@@ -14,32 +14,16 @@ document.addEventListener("click", function (e) {
 });
 
 //Scroll to top button
-let lastScrollY = window.scrollY;
-
 const reveals = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      const isScrollingDown = window.scrollY > lastScrollY;
-      lastScrollY = window.scrollY;
+window.addEventListener("scroll", () => {
+  for (let i = 0; i < reveals.length; i++) {
+    const windowHeight = window.innerHeight;
+    const revealTop = reveals[i].getBoundingClientRect().top;
+    const revealPoint = 100;
 
-      if (entry.isIntersecting && isScrollingDown) {
-        entry.target.classList.add("active");
-      }
-
-      // Reset class jika elemen sudah keluar dari viewport atas
-      if (
-        !entry.isIntersecting &&
-        entry.boundingClientRect.top > window.innerHeight
-      ) {
-        entry.target.classList.remove("active");
-      }
-    });
-  },
-  {
-    threshold: 0.1,
+    if (revealTop < windowHeight - revealPoint) {
+      reveals[i].classList.add("active");
+    }
   }
-);
-
-reveals.forEach((el) => observer.observe(el));
+});
