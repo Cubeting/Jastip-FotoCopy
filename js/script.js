@@ -14,29 +14,32 @@ document.addEventListener("click", function (e) {
 });
 
 //Scroll to top button
-let lastScrollTop = 0;
+let lastScrollY = window.scrollY;
 
-window.addEventListener("scroll", function () {
-  const reveals = document.querySelectorAll(".reveal");
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const scrollingDown = scrollTop > lastScrollTop;
+const reveals = document.querySelectorAll(".reveal");
 
-  reveals.forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      const isScrollingDown = window.scrollY > lastScrollY;
+      lastScrollY = window.scrollY;
 
-    if (scrollingDown) {
-      // Jika elemen masuk viewport saat scroll ke bawah
-      if (rect.top < windowHeight - 100) {
-        el.classList.add("active");
+      if (entry.isIntersecting && isScrollingDown) {
+        entry.target.classList.add("active");
       }
-    } else {
-      // Scroll ke atas: hapus class, tapi hanya jika elemen sudah di luar atas layar
-      if (rect.bottom < 0) {
-        el.classList.remove("active");
-      }
-    }
-  });
 
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-});
+      // Reset class jika elemen sudah keluar dari viewport atas
+      if (
+        !entry.isIntersecting &&
+        entry.boundingClientRect.top > window.innerHeight
+      ) {
+        entry.target.classList.remove("active");
+      }
+    });
+  },
+  {
+    threshold: 0.1,
+  }
+);
+
+reveals.forEach((el) => observer.observe(el));
