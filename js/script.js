@@ -14,19 +14,22 @@ document.addEventListener("click", function (e) {
 });
 
 //Scroll to top button
-const reveals = document.querySelectorAll(".reveal");
+const reveals = document.querySelectorAll('.reveal');
 
-window.addEventListener("scroll", () => {
-  const windowHeight = window.innerHeight;
-  const revealPoint = 100;
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      }
+    });
+  },
+  {
+    threshold: 0.1
+  }
+);
 
-  reveals.forEach((reveal) => {
-    const revealTop = reveal.getBoundingClientRect().top;
-
-    if (revealTop < windowHeight - revealPoint && revealTop > 0) {
-      reveal.classList.add("active");
-    } else {
-      reveal.classList.remove("active");
-    }
-  });
+reveals.forEach(el => {
+  observer.observe(el);
 });
+
