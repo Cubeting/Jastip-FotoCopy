@@ -28,27 +28,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-window.addEventListener("scroll", reveal);
-reveal();
-
-// Scroll to top button
-const scrollTopBtn = document.getElementById("scrollTop");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 500) {
-    scrollTopBtn.classList.add("show");
-  } else {
-    scrollTopBtn.classList.remove("show");
-  }
-});
-
-scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
-
 // Add entrance animation for menu cards
 const observerOptions = {
   threshold: 0.1,

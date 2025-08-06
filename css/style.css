@@ -1,11 +1,8 @@
 :root {
   --primary: #cae723;
   --primary-dark: #9fb01c;
-  --secondary: #ff6b6b;
-  --accent: #4ecdc4;
   --bg: #000000;
   --bg-light: #1a1a1a;
-  --glass: rgba(255, 255, 255, 0.1);
   --text-light: #e0e0e0;
   --gradient: linear-gradient(135deg, #cae723, #4ecdc4);
   --shadow: 0 10px 30px rgba(202, 231, 35, 0.3);
@@ -92,7 +89,6 @@ body {
 }
 
 /* Navbar */
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -610,41 +606,6 @@ footer {
   border-top: 1px solid #000;
   padding-top: 20px;
   color: #303030;
-}
-
-/* Scroll to Top Button */
-.scroll-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  background: var(--gradient);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  box-shadow: 0 10px 30px rgba(202, 231, 35, 0.3);
-}
-
-.scroll-top.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.scroll-top:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 15px 40px rgba(202, 231, 35, 0.4);
-}
-
-.scroll-top i {
-  color: #000;
-  font-size: 1.5rem;
 }
 
 /* Media Queries */
