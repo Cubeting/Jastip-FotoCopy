@@ -248,23 +248,36 @@ body {
 
 .menu .row .menu-card {
   text-align: center;
-  width: 200px;
-}
-
-.menu .row .menu-card img {
-  border-radius: 10%;
-  width: 100%;
-  height: 50%;
-  object-fit: cover;
+  width: 250px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
   transition: transform 0.3s ease;
 }
 
-.menu .row .menu-card:hover img {
-  transform: scale(1.05);
+.menu .row .menu-card:hover {
+  transform: scale(1.03);
+}
+
+.menu .row .menu-card img {
+  border-radius: 8px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
 
 .menu .row .menu-card .menu-card-title {
+  font-size: 1.1rem;
   margin-top: 1.5rem;
+  color: var(--primary);
+}
+
+.menu .row .menu-card .menu-card-description {
+  font-size: 0.9rem;
+  color: #333;
+  margin-top: 0.5rem;
+  line-height: 1.4;
 }
 
 /* Contact Section */
