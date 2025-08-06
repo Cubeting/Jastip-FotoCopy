@@ -298,6 +298,7 @@ body {
   width: 100%;
   height: 50%;
   object-fit: cover;
+  object-position: center;
   transition: transform 0.3s ease;
 }
 
@@ -470,7 +471,7 @@ footer {
   }
 
   .contact .row .menu-card {
-    height: 26rem;
+    height: 30rem;
     width: 100%;
     max-width: 400px;
   }
