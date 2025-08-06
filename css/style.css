@@ -469,6 +469,12 @@ footer {
     flex-wrap: wrap;
   }
 
+  .contact .row .menu-card {
+    height: 24rem;
+    width: 100%;
+    max-width: 400px;
+  }
+
   .contact .row .map {
     height: 30rem;
   }
