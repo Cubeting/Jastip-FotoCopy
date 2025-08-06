@@ -470,9 +470,15 @@ footer {
   }
 
   .contact .row .menu-card {
-    height: 24rem;
+    height: 26rem;
     width: 100%;
     max-width: 400px;
+  }
+
+  .content .row .menu-card img {
+    height: 26rem;
+    object-fit: cover;
+    object-position: center;
   }
 
   .contact .row .map {
