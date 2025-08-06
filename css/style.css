@@ -186,6 +186,7 @@ body {
   color: #fff;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
   line-height: 1.2;
+  animation: fadeInUp 1s ease forwards 0.5s;
 }
 
 .hero .content h1 span {
@@ -200,6 +201,7 @@ body {
   font-weight: 200;
   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
   mix-blend-mode: difference;
+  animation: fadeInUp 1s ease forwards 0.8s;
 }
 
 .hero .content .btn {
